@@ -7,7 +7,7 @@ def introspection_info(obj):
     attributes = dir(obj)
 
     # Получение методов объекта
-    methods = [method for method in attributes if callable(getattr(obj, method))]
+    methods = [method for method in dir(obj) if callable(getattr(obj, method))]
 
     # Определение модуля, к которому объект принадлежит
     module = obj.__class__.__module__

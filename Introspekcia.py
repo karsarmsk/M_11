@@ -4,9 +4,10 @@ def introspection_info(obj):
     obj_type = type(obj).__name__
 
     # Получение атрибутов объекта
-    attributes = dir(obj)
-
+    attributes = [attr for attr  in dir(obj) if callable(getattr(obj, attr))]
+    
     # Получение методов объекта
+
     methods = [method for method in dir(obj) if callable(getattr(obj, method))]
 
     # Определение модуля, к которому объект принадлежит
